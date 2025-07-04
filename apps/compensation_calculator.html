@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kondensator-Berechnung</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+<div class="container">
+  <h1>⚡ Kondensator-Berechnung</h1>
+
+  <div class="form-section">
+    <div class="section-title">Spannungsauswahl</div>
+    <div class="radio-group">
+      <div class="radio-item checked" onclick="selectVoltage('stern')">
+        <input type="radio" id="stern" name="spannung" checked="checked" value="230">
+        <label for="stern">Stern (230V)</label>
+      </div>
+      <div class="radio-item" onclick="selectVoltage('dreieck')">
+        <input type="radio" id="dreieck" name="spannung" value="400">
+        <label for="dreieck">Dreieck (400V)</label>
+      </div>
+      <div class="radio-item" onclick="selectVoltage('custom')">
+        <input type="radio" id="userSpannung" name="spannung" value="0">
+        <label for="userSpannung">Benutzerdefinierte Spannung</label>
+      </div>
+    </div>
+    <div class="custom-voltage-input" id="customVoltageInput">
+      <input type="number" id="userInputSpannung" placeholder="Spannung in V eingeben" step="any">
+    </div>
+  </div>
+
+  <div class="form-section">
+    <div class="section-title">Grundparameter</div>
+    <div class="input-group">
+      <label for="frequenz">Frequenz (Hz):</label>
+      <input type="number" id="frequenz" placeholder="z.B. 50" step="any">
+    </div>
+    <div class="input-group">
+      <label for="leistung">Abgegebene Leistung (W):</label>
+      <input type="number" id="leistung" placeholder="z.B. 10" step="any">
+    </div>
+    <div class="input-group">
+      <label for="wirkungsgrad">Wirkungsgrad (%):</label>
+      <input type="number" id="wirkungsgrad" placeholder="z.B. 95" step="any">
+    </div>
+  </div>
+
+  <div class="form-section">
+    <div class="section-title">Leistungsfaktor</div>
+    <div class="input-group">
+      <label for="cosphi1">Aktueller cos φ:</label>
+      <input type="number" id="cosphi1" placeholder="z.B. 0.78" step="any">
+    </div>
+    <div class="input-group">
+      <label for="cosphi2">Gewünschter cos φ:</label>
+      <input type="number" id="cosphi2" placeholder="z.B. 0.9" step="any">
+    </div>
+  </div>
+
+  <button class="calculate-btn" onclick="startCalculator()">
+    🔄 Berechnung starten
+  </button>
+
+  <div id="result">
+    <div class="result-title">📊 Berechnungsergebnis</div>
+    <div id="resultContent"></div>
+  </div>
+</div>
+<script src="../js/compensation_calculatro.js"></script>
+<script src="../js/formater.js"></script>
+</body>
+</html>
