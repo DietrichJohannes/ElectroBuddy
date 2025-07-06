@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ohmschies Gesetz</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+<div class="container">
+    <h1>⚡ Ohmscher Rechner</h1>
+
+    <div class="form-section">
+        <div class="section-title">Spannung</div>
+        <div class="input-group">
+            <label for="spannung">Spannung in (V):</label>
+            <input type="number" id="spannung" placeholder="z.B. 24" step="any">
+        </div>
+    </div>
+
+    <div class="form-section">
+        <div class="section-title">Strom</div>
+        <div class="input-group">
+            <label for="strom">Strom in (A):</label>
+            <input type="number" id="strom" placeholder="z.B. 50" step="any">
+        </div>
+    </div>
+
+    <div class="form-section">
+        <div class="section-title">Widerstand</div>
+        <div class="input-group">
+            <label for="widerstand">Widerstand in (Ω):</label>
+            <input type="number" id="widerstand" placeholder="z.B. 50" step="any">
+        </div>
+    </div>
+
+    <div class="form-section">
+        <div class="section-title">Leistung</div>
+        <div class="input-group">
+            <label for="leistung">Leistung in (W):</label>
+            <input type="number" id="leistung" placeholder="z.B. 50" step="any">
+        </div>
+    </div>
+
+    <button class="calculate-btn" onclick="calculate()">
+        🔄 Berechnung starten
+    </button>
+
+    <div id="result">
+        <div class="result-title">📊 Berechnungsergebnis</div>
+        <div id="resultContent">
+            <p id="result_spannung">Spannung</p>
+            <p id="result_strom">Strom</p>
+            <p id="result_widerstand">Widerstand</p>
+            <p id="result_leistung">Leistung</p>
+        </div>
+    </div>
+</div>
+
+<script src="../js/ohms_calculator.js"></script>
+<script src="../js/formater.js"></script>
+</body>
+</html>

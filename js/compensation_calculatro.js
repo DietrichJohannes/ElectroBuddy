@@ -21,6 +21,18 @@ var inputCosPhi1 = document.getElementById("cosphi1");
 var inputCosPhi2 = document.getElementById("cosphi2");
 var inputWirkungsgrad = document.getElementById("wirkungsgrad");
 
+var resultSpannung = document.getElementById("resultSpannung");
+var resultFrequenz = document.getElementById("resultFrequenz");
+var resultWirkleisung = document.getElementById("resultWirkleistung");
+var resultWirkungsgrad = document.getElementById("resultWirkungsgrad");
+var resultAufgenommeneLeisung = document.getElementById("resultAufgenommeneLeistung");
+var resultBlindleistung = document.getElementById("resultBlindleistung");
+var resultPhi1 = document.getElementById("resultPhi1");
+var resultPhi2 = document.getElementById("resultPhi2");
+var resultKapazität = document.getElementById("resultKapazität");
+
+var resultBlock = document.getElementById("result");
+
 animate();
 
 function updateInputVisibility() {
@@ -42,6 +54,22 @@ function startCalculator() {
   calculateConsumedPower();
   calculateReactivePower();
   calculateCapacity();
+  updateView();
+}
+
+function updateView(){
+  resultSpannung.innerHTML = "Spannung: " + formatWithPrefix(netzspannung, "V");
+  resultFrequenz.innerHTML = "Frequenz: " + formatWithPrefix(netzfrequenz, "Hz");
+  resultWirkleisung.innerHTML = "Abgegebene Leistung: " + formatWithPrefix(abgegebeneleistung, "W");
+  resultWirkungsgrad.innerHTML = "Wirkungsgrad: " + "%";
+  resultAufgenommeneLeisung.innerHTML = "Aufgenommene Leistung: " + formatWithPrefix(aufgebommeneLeistung, "VA");
+  resultBlindleistung.innerHTML = "Blindleistung: " + formatWithPrefix(blindleistung, "VAr");
+  resultPhi1.innerHTML = "Phi1: " + cosPhi1;
+  resultPhi2.innerHTML = "Phi2: " + cosPhi2;
+  resultKapazität.innerHTML = "Gesammt Kapazität: " + formatWithPrefix(kapazität, "F");
+
+
+  resultBlock.style.display = "block";
 }
 
 function calculateConsumedPower() {

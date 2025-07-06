@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Normieren und Skallieren</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+<div class="container">
+    <h1>⚡ Normieren und Skallieren</h1>
+
+    <div class="form-section">
+        <div class="section-title">Normieren</div>
+        <div class="input-group">
+            <label for="value_min_norm">Min. Wert:</label>
+            <input type="number" id="value_min_norm" placeholder="z.B. 50" step="any">
+        </div>
+        <div class="input-group">
+            <label for="current_value_norm">Aktueller Wert (Spannung, Temperatur, etc.):</label>
+            <input type="number" id="current_value_norm" placeholder="z.B. 10" step="any">
+        </div>
+        <div class="input-group">
+            <label for="value_max_norm">Max. Wert:</label>
+            <input type="number" id="value_max_norm" placeholder="z.B. 95" step="any">
+        </div>
+
+        <div class="form-section">
+            <div class="section-title">Skallieren</div>
+            <div class="input-group">
+                <label for="value_min_scale">Min. Wert:</label>
+                <input type="number" id="value_min_scale" placeholder="z.B. 50" step="any">
+            </div>
+            <div class="input-group">
+                <label for="value_max_scale">Max Wert:</label>
+                <input type="number" id="value_max_scale" placeholder="z.B. 10" step="any">
+            </div>
+        </div>
+    </div>
+
+    <button class="calculate-btn" onclick="calculate()">
+        🔄 Normieren & Skallieren
+    </button>
+
+    <div id="result">
+        <div class="result-title">📊 Berechnungsergebnis</div>
+        <div id="resultContent">
+            <p id="resultNorm"></p>
+            <p id="resultScale"></p>
+        </div>
+    </div>
+</div>
+<script src="../js/norm_scale.js"></script>
+</body>
+</html>
