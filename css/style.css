@@ -453,6 +453,18 @@ input[type="number"]:focus-visible {
   color: #1d1d1f;
 }
 
+a:link, a:visited {
+  background-color: olive;
+  color: white;
+  padding: 14px 25px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+}
+
+a:hover, a:active {
+  background-color: darkgreen;
+}
 
 .highlight{
   color: red;
