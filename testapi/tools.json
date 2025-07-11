@@ -3,7 +3,13 @@
         {
             "title":  "Die 5 Sicherheitsregeln",
             "description_short": "Regeln zum Sicheren Arbeiten mit Spannung",
-            "tool_url": "https://dietrichjohannes.github.io/ElectroBuddy/info/safety_rules.html",
+            "tool_url": "https://dietrichjohannes.github.io/ElectroBuddy/apps/compensation_calculator.html",
+            "img_url": "https://dietrichjohannes.github.io/ElectroBuddy/img/transmission.png" 
+        },
+        {
+            "title":  "Kompensationsanlagen",
+            "description_short": "Rechner zum Auslegen von Kompensationsanlagen",
+            "tool_url": "https://dietrichjohannes.github.io/ElectroBuddy/apps/compensation_calculator.html",
             "img_url": "https://dietrichjohannes.github.io/ElectroBuddy/img/transmission.png"            
         },
         {
@@ -11,6 +17,18 @@
             "description_short": "Normieren und Skallieren für die SPS Technik",
             "tool_url": "https://dietrichjohannes.github.io/ElectroBuddy/apps/norm_scale.html",
             "img_url": "https://dietrichjohannes.github.io/ElectroBuddy/img/transmission.png"
-        }        
+        },
+        {
+            "title":  "Ohmisches Gesetz",
+            "description_short": "Rechner für das Ohmsche Gesetz",
+            "tool_url": "https://dietrichjohannes.github.io/ElectroBuddy/apps/ohms_calculator.html",
+            "img_url": "https://dietrichjohannes.github.io/ElectroBuddy/img/transmission.png"
+        },
+        {
+            "title":  "Spezifischer Widerstand",
+            "description_short": "Berechnen des Spezifischen Widerstands",
+            "tool_url": "https://dietrichjohannes.github.io/ElectroBuddy/apps/resistance_calculator.html",
+            "img_url": "https://dietrichjohannes.github.io/ElectroBuddy/img/transmission.png"
+        }
     ]
 }
