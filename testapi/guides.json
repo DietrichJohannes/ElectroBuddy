@@ -1,0 +1,16 @@
+{
+    "e_buddy_guides":[
+        {
+            "title":  "Wechselschaltung",
+            "description_short": "Um Leuchten an zwei stellen zu schalten!",
+            "description_logng": "Schalte eine Leuchte an zwei stellen!",
+            "img_url": "https://image.led-lichtraum.de/item/images/3330/middle/globe-gluehbirne-vintage-filament-led-glow-warm-light-1--1-.jpg"
+        },
+        {
+            "title":  "Steckdose anschließen",
+            "description_short": "So wird eine Steckdose angeschlossen",
+            "description_logng": "Anschließen einer Steckdose",
+            "img_url": "https://image.led-lichtraum.de/item/images/3330/middle/globe-gluehbirne-vintage-filament-led-glow-warm-light-1--1-.jpg"
+        }        
+    ]
+}

@@ -1,0 +1,16 @@
+{
+    "e_buddy_tools":[
+        {
+            "title":  "Die 5 Sicherheitsregeln",
+            "description_short": "Regeln zum Sicheren Arbeiten mit Spannung",
+            "tool_url": "https://dietrichjohannes.github.io/ElectroBuddy/info/safety_rules.html",
+            "img_url": "https://dietrichjohannes.github.io/ElectroBuddy/img/transmission.png"            
+        },
+        {
+            "title":  "Normieren und Skallieren",
+            "description_short": "Normieren und Skallieren für die SPS Technik",
+            "tool_url": "https://dietrichjohannes.github.io/ElectroBuddy/apps/norm_scale.html",
+            "img_url": "https://dietrichjohannes.github.io/ElectroBuddy/img/transmission.png"
+        }        
+    ]
+}
