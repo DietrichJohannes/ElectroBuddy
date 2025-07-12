@@ -13,6 +13,12 @@
             "img_url": "https://dietrichjohannes.github.io/ElectroBuddy/img/transmission.png" 
         },
         {
+            "title": "Stromkosten Rechner",
+            "description_short": "Tool zum Berechnen von Stromkosten",
+            "tool_url": "https://dietrichjohannes.github.io/ElectroBuddy/apps/cost_calculator.html",
+            "img_url": "https://dietrichjohannes.github.io/ElectroBuddy/img/transmission.png"
+        },
+        {
             "title":  "Kompensationsanlagen",
             "description_short": "Rechner zum Auslegen von Kompensationsanlagen",
             "tool_url": "https://dietrichjohannes.github.io/ElectroBuddy/apps/compensation_calculator.html",
