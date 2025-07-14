@@ -1,30 +1,691 @@
 <!DOCTYPE html>
-<html>
+<html lang="de">
 <head>
-<title>App Übersicht</title>
-    <link rel="stylesheet" href="css/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sparky</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            color: #1d1d1f;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+            opacity: 0.3;
+            animation: float 20s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(1deg); }
+        }
+
+        .hero-content {
+            text-align: center;
+            color: white;
+            z-index: 2;
+            max-width: 800px;
+            padding: 0 20px;
+            animation: slideInUp 1s ease-out;
+        }
+
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            letter-spacing: -0.02em;
+            background: linear-gradient(45deg, #ffffff, #f0f0f0);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            margin-bottom: 40px;
+            opacity: 0.9;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .cta-btn {
+            padding: 16px 32px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .cta-primary {
+            background: linear-gradient(45deg, #ff6b6b, #ff8e8e);
+            color: white;
+        }
+
+        .cta-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(255,107,107,0.4);
+        }
+
+        .cta-secondary {
+            background: rgba(255,255,255,0.2);
+            color: white;
+            border: 2px solid rgba(255,255,255,0.3);
+            backdrop-filter: blur(10px);
+        }
+
+        .cta-secondary:hover {
+            background: rgba(255,255,255,0.3);
+            transform: translateY(-3px);
+        }
+
+        /* Features Section */
+        .features {
+            padding: 100px 20px;
+            background: #ffffff;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: #1d1d1f;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            color: #666;
+            margin-bottom: 60px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .feature-card {
+            background: #ffffff;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(0,0,0,0.05);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .feature-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 24px;
+            font-size: 24px;
+            color: white;
+        }
+
+        .feature-card h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 16px;
+            color: #1d1d1f;
+        }
+
+        .feature-card p {
+            color: #666;
+            line-height: 1.7;
+        }
+
+        /* Tools Section */
+        .tools {
+            padding: 100px 20px;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        }
+
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 60px;
+        }
+
+        .tool-card {
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 16px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .tool-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.12);
+        }
+
+        .tool-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 20px;
+            background: linear-gradient(45deg, #ff6b6b, #ff8e8e);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            color: white;
+        }
+
+        .tool-card h3 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: #1d1d1f;
+        }
+
+        .tool-card p {
+            color: #666;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .tool-btn {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 25px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .tool-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102,126,234,0.3);
+        }
+
+        /* About Section */
+        .about {
+            padding: 100px 20px;
+            background: #ffffff;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .about-text h2 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 24px;
+            color: #1d1d1f;
+        }
+
+        .about-text p {
+            color: #666;
+            margin-bottom: 20px;
+            line-height: 1.7;
+        }
+
+        .about-image {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            border-radius: 20px;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .about-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="2" fill="rgba(255,255,255,0.1)"/><circle cx="20" cy="20" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="80" cy="30" r="1.5" fill="rgba(255,255,255,0.1)"/><circle cx="30" cy="80" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="70" cy="70" r="1" fill="rgba(255,255,255,0.1)"/></svg>');
+            animation: sparkle 3s ease-in-out infinite;
+        }
+
+        @keyframes sparkle {
+            0%, 100% { opacity: 0.3; transform: scale(1); }
+            50% { opacity: 0.8; transform: scale(1.1); }
+        }
+
+        /* Footer */
+        .footer {
+            background: #1d1d1f;
+            color: #f5f5f7;
+            padding: 60px 20px 40px;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: #f5f5f7;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: #007aff;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .footer-links {
+                flex-direction: column;
+                gap: 20px;
+            }
+        }
+
+        /* Dark Mode */
+        @media (prefers-color-scheme: dark) {
+            body {
+                background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+                color: #f5f5f7;
+            }
+
+            .features {
+                background: #1d1d1f;
+            }
+
+            .tools {
+                background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            }
+
+            .about {
+                background: #1d1d1f;
+            }
+
+            .section-title {
+                color: #f5f5f7;
+            }
+
+            .section-subtitle {
+                color: #a1a1a6;
+            }
+
+            .feature-card {
+                background: #2c2c2e;
+                border: 1px solid rgba(255,255,255,0.1);
+            }
+
+            .feature-card h3 {
+                color: #f5f5f7;
+            }
+
+            .feature-card p {
+                color: #a1a1a6;
+            }
+
+            .tool-card {
+                background: #2c2c2e;
+            }
+
+            .tool-card h3 {
+                color: #f5f5f7;
+            }
+
+            .tool-card p {
+                color: #a1a1a6;
+            }
+
+            .about-text h2 {
+                color: #f5f5f7;
+            }
+
+            .about-text p {
+                color: #a1a1a6;
+            }
+        }
+
+        /* Smooth Scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInAnimation 0.8s ease-out forwards;
+        }
+
+        @keyframes fadeInAnimation {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Scroll indicator */
+        .scroll-indicator {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: white;
+            font-size: 24px;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
+            40% { transform: translateX(-50%) translateY(-10px); }
+            60% { transform: translateX(-50%) translateY(-5px); }
+        }
+    </style>
+</head>
 <body>
-<center>
-    <h1>Dev-Board</h1>
-</center>
-<a href="apps/compensation_calculator.html" target="_blank">Kompensationsrechner</a>
-<a href="apps/norm_scale.html" target="_blank">Nomieren und Skallieren</a>
-<br>
-<br>
-<a href="apps/ohms_calculator.html" target="_blank">Ohmscher Rechner</a>
-<a href="apps/resistance_calculator.html" target="_blank">Spezifischer Widerstand</a>
-<br>
-<br>
-<br>
-<br>
-<a href="info/safety_rules.html" target="_blank">Die 5 Sicherheitsregeln</a>
-<a href="info/disclaimer.html" target="_blank">Gefahren Elektrischer Energie</a>
-<br>
-<br>
-<br>
-<br>
-<a href="testapi/guides.json" target="_blank">Anleitungen API</a>
-<a href="testapi/knowledge.json" target="_blank">Wissen API</a>
-<a href="testapi/tools.json" target="_blank">Tools API</a>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Sparky</h1>
+            <p>Professionelle Berechnungstools und wichtige Informationen für Elektrotechniker. Sparen Sie Zeit und arbeiten Sie effizienter mit unseren präzisen Tools.</p>
+            <div class="cta-buttons">
+                <a href="#tools" class="cta-btn cta-primary">
+                    ⚡ Tools entdecken
+                </a>
+                <a href="#about" class="cta-btn cta-secondary">
+                    📖 Mehr erfahren
+                </a>
+            </div>
+        </div>
+        <div class="scroll-indicator">↓</div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <div class="container">
+            <h2 class="section-title">Warum ElektroTools Pro?</h2>
+            <p class="section-subtitle">Entwickelt von Elektrotechnikern für Elektrotechniker - mit allem was Sie für Ihren Arbeitsalltag benötigen</p>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🔧</div>
+                    <h3>Präzise Berechnungen</h3>
+                    <p>Alle Tools verwenden die neuesten Normen und Standards. Verlassen Sie sich auf exakte Ergebnisse für Ihre Projekte.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">📱</div>
+                    <h3>Überall verfügbar</h3>
+                    <p>Nutzen Sie unsere Tools auf jedem Gerät - ob Desktop, Tablet oder Smartphone. Immer griffbereit auf der Baustelle.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <h3>Blitzschnell</h3>
+                    <p>Keine langen Ladezeiten. Alle Berechnungen werden in Echtzeit durchgeführt und sofort angezeigt.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🎯</div>
+                    <h3>Benutzerfreundlich</h3>
+                    <p>Intuitive Bedienung ohne langes Einarbeiten. Fokus auf das Wesentliche - Ihre Arbeit.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tools Section -->
+    <section class="tools" id="tools">
+        <div class="container">
+            <h2 class="section-title">Unsere Tools</h2>
+            <p class="section-subtitle">Eine umfassende Sammlung der wichtigsten Berechnungstools für Elektrotechniker</p>
+            
+            <div class="tools-grid">
+                <div class="tool-card">
+                    <div class="tool-icon">🔌</div>
+                    <h3>Ohmsches Gesetz</h3>
+                    <p>Berechnen Sie Spannung, Strom und Widerstand nach dem Ohmschen Gesetz.</p>
+                    <a href="apps/ohms_calculator.html" class="tool-btn">Tool öffnen</a>
+                </div>
+                
+                <div class="tool-card">
+                    <div class="tool-icon">⚡</div>
+                    <h3>Kompensationsanlagen</h3>
+                    <p>Kondensator größe für Kompensationsanlagen berechnen.</p>
+                    <a href="#" class="tool-btn">Tool öffnen</a>
+                </div>
+                
+                <div class="tool-card">
+                    <div class="tool-icon">💻</div>
+                    <h3>Normieren und Skallieren</h3>
+                    <p>Normieren und Skallieren für die Analogwertverarbeitung mit der SPS.</p>
+                    <a href="#" class="tool-btn">Tool öffnen</a>
+                </div>
+                
+                <div class="tool-card">
+                    <div class="tool-icon">🔋</div>
+                    <h3>Spezifischen Widerstand</h3>
+                    <p>Den Spezifischen widerstand einer Leitung berechnen.</p>
+                    <a href="#" class="tool-btn">Tool öffnen</a>
+                </div>
+                
+                <div class="tool-card">
+                    <div class="tool-icon">📊</div>
+                    <h3>Kostenrechner</h3>
+                    <p>Energiekosten und Betriebskosten elektrischer Geräte berechnen.</p>
+                    <a href="#" class="tool-btn">Tool öffnen</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>Für Profis entwickelt</h2>
+                    <p>ElektroTools Pro wurde von erfahrenen Elektrotechnikern entwickelt, die täglich mit den Herausforderungen des Berufsalltags konfrontiert sind.</p>
+                    <p>Unsere Tools basieren auf aktuellen Normen und Standards und werden kontinuierlich weiterentwickelt, um Ihnen die bestmögliche Unterstützung zu bieten.</p>
+                    <p>Ob Sie in der Industrie, im Handwerk oder in der Planung tätig sind - unsere Tools sparen Ihnen wertvolle Zeit und sorgen für zuverlässige Ergebnisse.</p>
+                </div>
+                <div class="about-image">
+                    ⚡🔧📐
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="#tools">Tools</a>
+                <a href="#features">Features</a>
+                <a href="#about">Über uns</a>
+                <a href="#">Kontakt</a>
+                <a href="#">Impressum</a>
+                <a href="#">Datenschutz</a>
+            </div>
+            <p>&copy; 2024 Sparky Alle Rechte vorbehalten.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Fade in animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all cards and sections
+        document.querySelectorAll('.feature-card, .tool-card, .about-content').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'opacity 0.8s ease-out, transform 0.8s ease-out';
+            observer.observe(el);
+        });
+
+        // Parallax effect for hero background
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const hero = document.querySelector('.hero');
+            if (hero) {
+                hero.style.transform = `translateY(${scrolled * 0.5}px)`;
+            }
+        });
+    </script>
 </body>
 </html>

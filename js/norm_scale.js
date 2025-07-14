@@ -31,7 +31,7 @@ function calculate(){
 function updateView(){
 
     resultNorm.innerHTML = "Normierter Wert: " + normValue.toFixed(2);
-    resultScale.innerHTML = "Scallierter Wert: " + scaleValue.toFixed(2);
+    resultScale.innerHTML = "Skallierter Wert: " + scaleValue.toFixed(2);
     resultBlock.style.display = "block";
 }
 
