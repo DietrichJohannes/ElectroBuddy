@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spezifischer Widerstand</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+<div class="container">
+    <h1>⚡ Spezifischen Widerstand Berechnen</h1>
+
+    <div class="form-section">
+        <div class="section-title">Spannungsauswahl</div>
+        <div class="radio-group">
+            <div class="radio-item checked">
+                <input type="radio" id="kupfer" name="material" checked="checked" value="0.0178">
+                <label for="kupfer">Kupfer (0,0178Ω*mm²/m)</label>
+            </div>
+            <div class="radio-item">
+                <input type="radio" id="aluminium" name="material" value="0.0278">
+                <label for="aluminium">Aluminium (0,0278Ω*mm²/m)</label>
+            </div>
+            <div class="radio-item">
+                <input type="radio" id="userRho" name="material" value='0'>
+                <label for="userRho">Benutzerdefinierter Spezifischer Widerstand</label>
+            </div>
+        </div>
+        <div class="custom-voltage-input" id="customVoltageInput">
+            <input type="number" id="customRho" placeholder="Rho in Ω*mm²/m" step="any">
+        </div>
+    </div>
+
+    <div class="form-section">
+        <div class="section-title">Länge</div>
+        <div class="input-group">
+            <label for="länge">Leiter Länge in (m):</label>
+            <input type="number" id="länge" placeholder="z.B. 50" step="any">
+        </div>
+    </div>
+
+    <div class="form-section">
+        <div class="section-title">Querschnitt</div>
+        <div class="input-group">
+            <label for="fläche">Querschnitt in (mm²):</label>
+            <input type="number" id="fläche" placeholder="z.B. 50" step="any">
+        </div>
+    </div>
+
+    <button class="calculate-btn" onclick="startCalculator()">
+        🧮 Berechnung starten
+    </button>
+
+    <div id="result">
+        <div class="result-title">📊 Berechnungsergebnis</div>
+        <div id="resultContent">
+            <p id="result_widerstand">Widerstand</p>
+        </div>
+    </div>
+</div>
+
+<script src="../js/cost_calculator.js"></script>
+<script src="../js/formater.js"></script>
+</body>
+</html>

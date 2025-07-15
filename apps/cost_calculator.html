@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stromkosten Rechner</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+<div class="container">
+    <h1>⚡ Stromkosten Rechner</h1>
+
+    <div class="form-section">
+        <div class="section-title">Geräteleistung</div>
+        <div class="input-group">
+            <label for="geräteleistung">Geräteleistung in (W):</label>
+            <input type="number" id="geräteleistung" placeholder="z.B. 24" step="any">
+        </div>
+    </div>
+
+    <div class="form-section">
+        <div class="section-title">Betriebszeit</div>
+        <div class="input-group">
+            <label for="betriebszeit">Betriebszeit in (h)</label>
+            <input type="number" id="betriebszeit" placeholder="z.B. 50" step="any">
+        </div>
+    </div>
+
+    <div class="form-section">
+        <div class="section-title">Strompreis</div>
+        <div class="input-group">
+            <label for="strompreis">Strompreis in (€):</label>
+            <input type="number" id="strompreis" placeholder="z.B. 0.30" step="any">
+        </div>
+    </div>
+
+    <button class="calculate-btn" onclick="calculate()">
+        🧮 Berechnung starten
+    </button>
+
+    <div id="result">
+        <div class="result-header">
+            <div class="result-title">📊 Berechnungsergebnis</div>
+            <div class="result-subtitle">Ihre Stromkosten im Überblick</div>
+        </div>
+        <div class="result-body">
+            <div class="result-cards">
+                <div class="result-card">
+                    <span class="result-card-icon">⚡</span>
+                    <div class="result-card-label">Energieverbrauch</div>
+                    <div class="result-card-value" id="result_energie_value">0</div>
+                    <div class="result-card-unit">kWh</div>
+                </div>
+                <div class="result-card">
+                    <span class="result-card-icon">💰</span>
+                    <div class="result-card-label">Stromkosten</div>
+                    <div class="result-card-value" id="result_kosten_value">0</div>
+                    <div class="result-card-unit">€</div>
+                </div>
+            </div>
+            <div class="result-summary">
+                <div class="result-summary-text">Bei diesem Verbrauch entstehen Ihnen</div>
+                <div class="result-summary-highlight" id="result_summary">0 € Stromkosten</div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="../js/cost_calculator.js"></script>
+</body>
+</html>
+
+<!-- TODO: Merge CSS file form Claude -->
