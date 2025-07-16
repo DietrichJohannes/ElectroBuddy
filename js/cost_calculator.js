@@ -34,8 +34,17 @@ function calculatePrice(){
 }
 
 function updateView(){
-    resultEnergie.innerHTML = "Verbrauchte Energie: " + energie.toFixed(2) + "kWh";
-    resultKosten.innerHTML = "Stromkosten: " + kosten.toFixed(2) + "€";
 
-    resultBlock.style.display = "block";
+    document.getElementById('result_energie_value').textContent = energie.toFixed(2);
+    document.getElementById('result_kosten_value').textContent = kosten.toFixed(2);
+    document.getElementById('result_summary').textContent = `${kosten.toFixed(2)} € Stromkosten`;
+    
+    // Result div anzeigen
+    document.getElementById('result').style.display = 'block';
+    
+    // Smooth scroll to result
+    document.getElementById('result').scrollIntoView({ 
+        behavior: 'smooth', 
+        block: 'center' 
+    });
 }

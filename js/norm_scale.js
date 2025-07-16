@@ -30,8 +30,9 @@ function calculate(){
 
 function updateView(){
 
-    resultNorm.innerHTML = "Normierter Wert: " + normValue.toFixed(2);
-    resultScale.innerHTML = "Skallierter Wert: " + scaleValue.toFixed(2);
+    document.getElementById('result_norm_value').textContent = normValue.toFixed(2);
+    document.getElementById('result_scale_value').textContent = scaleValue.toFixed(2);
+
     resultBlock.style.display = "block";
 }
 

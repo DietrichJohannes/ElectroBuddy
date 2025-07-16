@@ -525,3 +525,191 @@
         input[type="number"]:focus-visible {
             outline: none;
         }
+
+        /* VERBESSERTER RESULT DIV - NEUE ELEMENTE */
+
+/* Neuer Result Header mit Gradient */
+.result-header {
+    background: linear-gradient(135deg, #007aff 0%, #0056cc 100%);
+    color: white;
+    padding: 24px;
+    border-radius: 16px 16px 0 0;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.result-header::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+    animation: shimmer 3s infinite;
+}
+
+@keyframes shimmer {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Geänderte Result Title */
+.result-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+    position: relative;
+    z-index: 1;
+}
+
+/* Neue Result Subtitle */
+.result-subtitle {
+    font-size: 1rem;
+    opacity: 0.9;
+    position: relative;
+    z-index: 1;
+}
+
+/* Neuer Result Body */
+.result-body {
+    background: #ffffff;
+    border-radius: 0 0 16px 16px;
+    border: 1px solid #e5e5e7;
+    border-top: none;
+    overflow: hidden;
+}
+
+/* Neue Result Cards Container */
+.result-cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+}
+
+/* Neue Result Card */
+.result-card {
+    padding: 24px;
+    text-align: center;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.result-card:first-child {
+    border-right: 1px solid #e5e5e7;
+}
+
+.result-card:hover {
+    background: #f8f9fa;
+    transform: translateY(-2px);
+}
+
+/* Neue Result Card Elemente */
+.result-card-icon {
+    font-size: 2rem;
+    margin-bottom: 12px;
+    display: block;
+}
+
+.result-card-label {
+    font-size: 0.875rem;
+    color: #86868b;
+    margin-bottom: 8px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.result-card-value {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #1d1d1f;
+    margin-bottom: 4px;
+}
+
+.result-card-unit {
+    font-size: 0.875rem;
+    color: #86868b;
+    font-weight: 400;
+}
+
+/* Neue Result Summary */
+.result-summary {
+    background: #f8f9fa;
+    padding: 20px 24px;
+    border-top: 1px solid #e5e5e7;
+    text-align: center;
+}
+
+.result-summary-text {
+    font-size: 0.875rem;
+    color: #86868b;
+    margin-bottom: 8px;
+}
+
+.result-summary-highlight {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: #007aff;
+}
+
+/* Mobile Anpassungen für neue Elemente */
+@media (max-width: 768px) {
+    .result-cards {
+        grid-template-columns: 1fr;
+    }
+
+    .result-card:first-child {
+        border-right: none;
+        border-bottom: 1px solid #e5e5e7;
+    }
+
+    .result-card {
+        padding: 20px;
+    }
+
+    .result-header {
+        padding: 20px;
+    }
+
+    .result-title {
+        font-size: 1.25rem;
+    }
+}
+
+/* Dark Mode für neue Elemente */
+@media (prefers-color-scheme: dark) {
+    .result-body {
+        background: #2c2c2e;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .result-card {
+        color: #f5f5f7;
+    }
+
+    .result-card:first-child {
+        border-right: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .result-card:hover {
+        background: #3a3a3c;
+    }
+
+    .result-card-value {
+        color: #f5f5f7;
+    }
+
+    .result-summary {
+        background: #1c1c1e;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    @media (max-width: 768px) {
+        .result-card:first-child {
+            border-right: none;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+    }
+}
