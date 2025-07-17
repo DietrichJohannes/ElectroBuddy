@@ -63,7 +63,7 @@ function calculate(){
 }
 
 function updateView(){
-    resultWiderstand.innerHTML = "Widerstand der Leitung: " + formatWithPrefix(spezifischerWiderstand, 'Ω');
+    document.getElementById('result_summary').textContent = formatWithPrefix(spezifischerWiderstand, 'Ω');
 
     resultBlock.style.display = "block";
 }

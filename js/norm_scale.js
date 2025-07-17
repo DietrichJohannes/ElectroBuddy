@@ -29,7 +29,6 @@ function calculate(){
 }
 
 function updateView(){
-
     document.getElementById('result_norm_value').textContent = normValue.toFixed(2);
     document.getElementById('result_scale_value').textContent = scaleValue.toFixed(2);
 

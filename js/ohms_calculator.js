@@ -22,10 +22,11 @@ function calculate() {
 }
 
 function updateView() {
-    resultVoltage.innerHTML = "Spannung: " + formatWithPrefix(voltage, 'V');
-    resultCurrent.innerHTML = "Strom: " + formatWithPrefix(current, 'A');
-    resultResistance.innerHTML = "Widerstand: " + formatWithPrefix(resistance, 'Ω');
-    resultPower.innerHTML = "Leistung: " + formatWithPrefix(power, 'W');
+
+    document.getElementById('result_spannung_value').textContent = formatWithPrefix(voltage, 'V');
+    document.getElementById('result_strom_value').textContent = formatWithPrefix(current, 'A');
+    document.getElementById('result_widerstand_value').textContent = formatWithPrefix(resistance, 'Ω');
+    document.getElementById('result_leistung_value').textContent = formatWithPrefix(power, 'W');
 
     resultBlock.style.display = "block";
 }

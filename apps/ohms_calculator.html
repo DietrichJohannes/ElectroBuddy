@@ -46,13 +46,38 @@
         🧮 Berechnung starten
     </button>
 
-    <div id="result">
-        <div class="result-title">📊 Berechnungsergebnis</div>
-        <div id="resultContent">
-            <p id="result_spannung">Spannung</p>
-            <p id="result_strom">Strom</p>
-            <p id="result_widerstand">Widerstand</p>
-            <p id="result_leistung">Leistung</p>
+<div id="result">
+        <div class="result-header">
+            <div class="result-title">📊 Berechnungsergebnis</div>
+            <div class="result-subtitle">Normierte und Skalliere Werte</div>
+        </div>
+        <div class="result-body">
+            <div class="result-cards">
+                <div class="result-card">
+                    <span class="result-card-icon">⚡</span>
+                    <div class="result-card-label">Strom</div>
+                    <div class="result-card-value" id="result_spannung_value">0</div>
+                    <div class="result-card-unit"></div>
+                </div>
+                <div class="result-card">
+                    <span class="result-card-icon">🔌</span>
+                    <div class="result-card-label">Spannung</div>
+                    <div class="result-card-value" id="result_strom_value">0</div>
+                    <div class="result-card-unit"></div>
+                </div>
+                <div class="result-card">
+                    <span class="result-card-icon">🔋</span>
+                    <div class="result-card-label">Widerstand</div>
+                    <div class="result-card-value" id="result_widerstand_value">0</div>
+                    <div class="result-card-unit"></div>
+                </div>
+                    <div class="result-card">
+                    <span class="result-card-icon">🏭</span>
+                    <div class="result-card-label">Leistung</div>
+                    <div class="result-card-value" id="result_leistung_value">0</div>
+                    <div class="result-card-unit"></div>
+                </div>
+            </div>
         </div>
     </div>
 </div>
