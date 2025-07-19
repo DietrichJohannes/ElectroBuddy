@@ -4,7 +4,7 @@
             "title":  "Wechselschaltung",
             "description_short": "Um Leuchten an zwei stellen zu schalten!",
             "description_logng": "Schalte eine Leuchte an zwei stellen!",
-            "difficulty": "2",
+            "difficulty": 2,
             "category": "Gebäudetechnik",
             "img_url": "https://image.led-lichtraum.de/item/images/3330/middle/globe-gluehbirne-vintage-filament-led-glow-warm-light-1--1-.jpg"
         },
@@ -12,14 +12,14 @@
             "title":  "Steckdose anschließen",
             "description_short": "So wird eine Steckdose angeschlossen",
             "description_logng": "Anschließen einer Steckdose",
-            "difficulty": "1",
+            "difficulty": 1,
             "category": "Allgemein",
             "img_url": "https://image.led-lichtraum.de/item/images/3330/middle/globe-gluehbirne-vintage-filament-led-glow-warm-light-1--1-.jpg"
         },{
             "title":  "Y△Anlaufschaltung",
             "description_short": "Zum minimieren des Anlaufstromes!",
             "description_logng": "So baut man eine Y△-Anlaufschaltung",
-            "difficulty": "3",
+            "difficulty": 3,
             "category": "Verfahrenstechnik",
             "img_url": "https://image.led-lichtraum.de/item/images/3330/middle/globe-gluehbirne-vintage-filament-led-glow-warm-light-1--1-.jpg"
         }
